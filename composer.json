@@ -1,0 +1,15 @@
+{
+    "name": "i.janjua/php",
+    "autoload": {
+        "psr-4": {
+            "IJanjua\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Imam Janjua",
+            "email": "i.janjua@simplicity.ag"
+        }
+    ],
+    "require": {}
+}
