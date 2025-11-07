@@ -14,5 +14,7 @@ for ($i = 1; $i <= 3; $i++) {
     $human->sayName();
     $human->sayAge();
     $human->sayProfession();
+
+
 }
 
