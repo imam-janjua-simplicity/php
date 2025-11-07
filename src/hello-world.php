@@ -2,8 +2,11 @@
 declare (strict_types=1);
 include "Human.php";
 
+$human = new Human($firstname = "Lukas", $lastname = "sir", $age = "11", $profession = "JC");
+echo $human->getFirstName();
 
-for ($i = 1; $i <= 3; $i++) {
+
+/* for ($i = 1; $i <= 3; $i++) {
     $firstname = readline('Vorname?: ');
     $lastname = readline('Nachname?: ');
     $age = readline('Alter?: ');
@@ -14,5 +17,5 @@ for ($i = 1; $i <= 3; $i++) {
     $human->sayName();
     $human->sayAge();
     $human->sayProfession();
-}
+} */
 

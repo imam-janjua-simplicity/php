@@ -20,25 +20,25 @@ class Human
       $this->profession = $profession;
      }
 
-    public function sayName()
+    public function getFirstName(): string
     {
-        $this->say("$this->firstname $this->lastname");
+        return $this->firstname;
     }
 
-   public function sayAge()
+    public function getLastName(): string
     {
-        $this->say("$this->age");
+        return $this->lastname;
     }
 
-   public function sayProfession()
+   public function getAge(): string
     {
-        $this->say("$this->profession");
+        return $this->age;
+    }
+
+   public function getProfession(): string
+    {
+        return $this->profession;
    }
-
-    private function say(string $input)
-    {
-         echo "\n $input .";   
-    }
 
   private function validateFirstName(string $firstname)
   {
