@@ -1,0 +1,24 @@
+# https://phpstan.org/config-reference
+parameters:
+    level: 8
+    inferPrivatePropertyTypeFromConstructor: true
+
+    parallel:
+        processTimeout: 300.0
+
+    dynamicConstantNames:
+        - APP_ENV
+        - APPLICATION_ROOT
+        - TRADE_KEY
+
+    scanFiles:
+        - src/hello-world.php
+
+    paths:
+        - src
+      #  - test
+
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        - identifier: offsetAccess.nonOffsetAccessible
+ 
