@@ -4,10 +4,10 @@ class Human
 {
   private string $firstname;
   private string $lastname;
-  private string $age; 
+  private int $age; 
   private string $profession;
 
-  public function __construct(string $firstname, string $lastname, string $age, string $profession)
+  public function __construct(string $firstname = 'Lukas', string $lastname = 'Sir', int $age = 12, string $profession = 'JC')
   {
     $this->validateFirstName($firstname);
     $this->validateLastName($lastname);
@@ -20,33 +20,28 @@ class Human
       $this->profession = $profession;
      }
 
-    public function sayName()
+    public function getFirstName(): string
     {
-        $this->say("$this->firstname $this->lastname");
+        return $this->firstname;
     }
 
-   public function sayAge()
+    public function getLastName(): string
     {
-        $this->say("$this->age");
+        return $this->lastname;
     }
 
-   public function sayProfession()
+   public function getAge(): int
     {
-        $this->say("$this->profession");
+        return $this->age;
+    }
+
+   public function getProfession(): string
+    {
+        return $this->profession;
    }
-
-    private function say(string $input)
-    {
-         echo "\n $input .";   
-    }
 
   private function validateFirstName(string $firstname)
   {
-    if (!$firstname)
-    {
-       throw new \Exception('Firstname is false');
-    }
-
     if (empty($firstname))
     {
       throw new \Exception('Firstname is empty');
@@ -60,11 +55,6 @@ class Human
 
     private function validateLastName(string $lastname)
   {
-    if (!$lastname)
-    {
-       throw new \Exception('lastname is false');
-    }
-
     if (empty($lastname))
     {
       throw new \Exception('lastname is empty');
@@ -76,31 +66,21 @@ class Human
     }
     }
 
-  private function validateAge(string $age)
+  private function validateAge(int $age)
   {
-    if (!$age)
-    {
-       throw new \Exception('age is false');
-    }
-
     if (empty($age))
     {
       throw new \Exception('age is empty');
     }
 
-    if (!is_numeric($age))
+    if ($age < 0 || $age > 150)
     {
-      throw new \Exception('age is not a number');
+      throw new \Exception('age is not in range');
     }
   }
 
   private function validateProfession(string $profession)
   {
-    if (!$profession)
-    {
-       throw new \Exception('profession is false');
-    }
-
     if (empty($profession))
     {
       throw new \Exception('profession is empty');
@@ -111,6 +91,5 @@ class Human
       throw new \Exception('profession is a number');
     }
   }
-
 
 } 

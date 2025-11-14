@@ -1,20 +1,20 @@
 <?php
 declare (strict_types=1);
-include "Human.php";
+include 'Human.php';
+
+$human = new Human(firstname: 'Lukas', lastname: 'sir');
+echo $human->getAge();
+echo $human->getProfession();
 
 
-for ($i = 1; $i <= 3; $i++) {
-    $firstname = readline('Vorname?: ');
-    $lastname = readline('Nachname?: ');
-    $age = readline('Alter?: ');
-    $profession = readline('Beruf?: ');
+$human = new Human(firstname: 'Lukas', lastname: 'sir', profession: 'Bürgergeld');
+echo $human->getAge();
+echo $human->getProfession();
 
-    $human = new Human($firstname, $lastname, $age, $profession);
+$human = new Human(firstname: 'Lukas', lastname: 'sir', age: 11);
+echo $human->getAge();
+echo $human->getProfession();
 
-    $human->sayName();
-    $human->sayAge();
-    $human->sayProfession();
-
-
-}
-
+$human = new Human(profession: 'King');
+echo $human->getAge();
+echo $human->getProfession();
