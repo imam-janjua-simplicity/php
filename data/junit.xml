@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="HumanTest" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000392">
-    <testcase name="testCreateHuman" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="8" class="HumanTest" classname="HumanTest" assertions="1" time="0.000392"/>
-  </testsuite>
-</testsuites>
