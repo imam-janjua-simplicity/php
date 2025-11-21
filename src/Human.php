@@ -42,10 +42,6 @@ class Human
 
     private function validateFirstName(string $firstname): void
     {
-        if (!$firstname) {
-            throw new \Exception('Firstname is false');
-        }
-
         if (empty($firstname)) {
             throw new \Exception('Firstname is empty');
         }
@@ -57,10 +53,6 @@ class Human
 
     private function validateLastName(string $lastname): void
     {
-        if (!$lastname) {
-            throw new \Exception('lastname is false');
-        }
-
         if (empty($lastname)) {
             throw new \Exception('lastname is empty');
         }
@@ -72,10 +64,6 @@ class Human
 
     private function validateAge(string $age): void
     {
-        if (!$age) {
-            throw new \Exception('age is false');
-        }
-
         if (empty($age)) {
             throw new \Exception('age is empty');
         }
@@ -87,10 +75,6 @@ class Human
 
     private function validateProfession(string $profession): void
     {
-        if (!$profession) {
-            throw new \Exception('profession is false');
-        }
-
         if (empty($profession)) {
             throw new \Exception('profession is empty');
         }

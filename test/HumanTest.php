@@ -8,7 +8,7 @@ class HumanTest extends TestCase
   public function testCreateHuman()
   {
     
-    $this->expectExceptionMessage("Firstname is false");
+    $this->expectExceptionMessage("Firstname is empty");
     $human = new Human("", "Weidel", "18", "Legende");
   }
 
