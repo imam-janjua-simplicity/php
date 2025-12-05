@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="CLI Arguments" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000398">
-    <testsuite name="HumanTest" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000398">
-      <testcase name="testCreateHuman" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="8" class="HumanTest" classname="HumanTest" assertions="1" time="0.000398"/>
+  <testsuite name="CLI Arguments" tests="9" assertions="12" errors="0" failures="0" skipped="0" time="0.001959">
+    <testsuite name="HumanTest" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" tests="9" assertions="12" errors="0" failures="0" skipped="0" time="0.001959">
+      <testcase name="testCreateHumanWithEmptyFirstname" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="25" class="HumanTest" classname="HumanTest" assertions="1" time="0.000352"/>
+      <testcase name="testCreateHumanWithNumericProfession" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="74" class="HumanTest" classname="HumanTest" assertions="1" time="0.000214"/>
+      <testcase name="testCreateHumanWithNumericLastname" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="46" class="HumanTest" classname="HumanTest" assertions="1" time="0.000199"/>
+      <testcase name="testCreateHumanWithValidData" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="15" class="HumanTest" classname="HumanTest" assertions="4" time="0.000187"/>
+      <testcase name="testCreateHumanWithNumericFirstname" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="32" class="HumanTest" classname="HumanTest" assertions="1" time="0.000173"/>
+      <testcase name="testCreateHumanWithEmptyProfession" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="67" class="HumanTest" classname="HumanTest" assertions="1" time="0.000294"/>
+      <testcase name="testCreateHumanWithNonNumericAge" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="60" class="HumanTest" classname="HumanTest" assertions="1" time="0.000188"/>
+      <testcase name="testCreateHumanWithEmptyAge" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="53" class="HumanTest" classname="HumanTest" assertions="1" time="0.000183"/>
+      <testcase name="testCreateHumanWithEmptyLastname" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="39" class="HumanTest" classname="HumanTest" assertions="1" time="0.000169"/>
     </testsuite>
   </testsuite>
 </testsuites>
