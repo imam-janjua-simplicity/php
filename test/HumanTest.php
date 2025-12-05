@@ -13,3 +13,4 @@ class HumanTest extends TestCase
   }
 
 }
+
