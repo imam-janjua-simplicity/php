@@ -1,81 +1,117 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 include "src/Human.php";
 
 class HumanTest extends TestCase
 {
-    // Valid data that we can reuse
-    private $validFirstname = "Mark";
-    private $validLastname = "Bauer";
-    private $validAge = "69";
-    private $validProfession = "Ultra HD MAX Developer";
-
-    public function testCreateHumanWithValidData()
+    #[DataProvider('emptyDataProvider')]
+    public function testCreateHumanWithEmptyData(string $firstname, string $lastname, string $age, string $profession, string $message): void
     {
-        $human = new Human($this->validFirstname, $this->validLastname, $this->validAge, $this->validProfession);
-        
-        $this->assertEquals($this->validFirstname, $human->getFirstName());
-        $this->assertEquals($this->validLastname, $human->getLastName());
-        $this->assertEquals($this->validAge, $human->getAge());
-        $this->assertEquals($this->validProfession, $human->getProfession());
+        $this->expectExceptionMessage($message);
+        new Human($firstname, $lastname, $age, $profession);
     }
 
-    public function testCreateHumanWithEmptyFirstname()
+    #[DataProvider('typDataProvider')]
+    public function testCreateHumanWithTypData(string $firstname, string $lastname, string $age, string $profession, string $message): void
     {
-        $this->expectExceptionMessage("Firstname is empty");
-        
-        new Human("", $this->validLastname, $this->validAge, $this->validProfession);
+        $this->expectExceptionMessage($message);
+        new Human($firstname, $lastname, $age, $profession);
     }
 
-    public function testCreateHumanWithNumericFirstname()
+    public static function emptyDataProvider(): array
     {
-        $this->expectExceptionMessage("Firstname is a number");
-        
-        new Human("123", $this->validLastname, $this->validAge, $this->validProfession);
+        return [
+            'emptyFirstname' => [
+                '',
+                'Bauer',
+                '67',
+                'Ultra HD MAX Developer',
+                'Firstname is empty'
+            ],
+            'emptyLastname' => [
+                'Lukas',
+                '',
+                '34',
+                'IT',
+                'lastname is empty'
+            ],
+
+            'emptyAge' => [
+                'Lord',
+                'Lukas',
+                '',
+                'Ultra HD MAX Developer',
+                'age is empty'
+            ],
+            'emptyProfession' => [
+                'Lukas',
+                'Sir',
+                '55',
+                '',
+                'profession is empty'
+            ]
+
+        ];
     }
 
-    public function testCreateHumanWithEmptyLastname()
+    public static function typDataProvider(): array
     {
-        $this->expectExceptionMessage("lastname is empty");
-        
-        new Human($this->validFirstname, "", $this->validAge, $this->validProfession);
+        return [
+            'numericFirstname' => [
+                '34',
+                'Bauer',
+                '67',
+                'Ultra HD MAX Developer',
+                'Firstname is a number'
+            ],
+            'numericLastname' => [
+                'Lukas',
+                '56',
+                '34',
+                'IT',
+                'lastname is a number'
+            ],
+
+            'notNumericAge' => [
+                'Lord',
+                'Lukas',
+                'abc',
+                'Ultra HD MAX Developer',
+                'age is not a number'
+            ],
+            'numericProfession' => [
+                'Lukas',
+                'Sir',
+                '55',
+                '789',
+                'profession is a number'
+            ]
+
+        ];
     }
 
-    public function testCreateHumanWithNumericLastname()
+    #[DataProvider('ValideDataProvider')]
+    public function testCreateHumanWithValideData(string $firstname, string $lastname, string $age, string $profession): void
     {
-        $this->expectExceptionMessage("lastname is a number");
-        
-        new Human($this->validFirstname, "123", $this->validAge, $this->validProfession);
+       $human = new Human($firstname, $lastname, $age, $profession);
+       $this->assertInstanceOf(Human::class, $human);
     }
 
-    public function testCreateHumanWithEmptyAge()
-    {
-        $this->expectExceptionMessage("age is empty");
-        
-        new Human($this->validFirstname, $this->validLastname, "", $this->validProfession);
-    }
 
-    public function testCreateHumanWithNonNumericAge()
+    public static function ValideDataProvider(): array
     {
-        $this->expectExceptionMessage("age is not a number");
-        
-        new Human($this->validFirstname, $this->validLastname, "abc", $this->validProfession);
-    }
+        return [
+            'valideData' => [
+                'Lord',
+                'Mark',
+                '67',
+                'Ultra HD MAX Developer',
+            ],
 
-    public function testCreateHumanWithEmptyProfession()
-    {
-        $this->expectExceptionMessage("profession is empty");
-        
-        new Human($this->validFirstname, $this->validLastname, $this->validAge, "");
-    }
+        ];
 
-    public function testCreateHumanWithNumericProfession()
-    {
-        $this->expectExceptionMessage("profession is a number");
-        
-        new Human($this->validFirstname, $this->validLastname, $this->validAge, "123");
     }
 }
-

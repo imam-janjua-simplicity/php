@@ -2,7 +2,7 @@
 
 class Merchant extends Human
 {
-  private int $money;
+    private int $money;
 
     public function __construct(string $firstname, string $lastname, string $age, string $profession, int $money)
     {
@@ -10,15 +10,14 @@ class Merchant extends Human
         $this->money = $money;
     }
 
-  public function getMoney(): int
-  {
-    return $this->money;
-  }
+    public function getMoney(): int
+    {
+        return $this->money;
+    }
 
-  public function getFirstName(): string
-  {
-    return "Sir $this->firstname";
-  }
+    public function getFirstName(): string
+    {
+        return "Sir $this->firstname";
+    }
 
 }
-

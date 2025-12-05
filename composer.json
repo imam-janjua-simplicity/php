@@ -20,6 +20,7 @@
         "test": "vendor/bin/phpunit test",
         "analyse": "vendor/bin/phpstan analyse -l 9 src",
         "lint-dry": "vendor/bin/php-cs-fixer fix --dry-run --diff src",
-        "lint": "vendor/bin/php-cs-fixer --diff src "
+        "lint": "vendor/bin/php-cs-fixer fix --diff src",
+        "lint-test": "vendor/bin/php-cs-fixer fix --diff test"
     }
 }
