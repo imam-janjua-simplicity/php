@@ -4,7 +4,7 @@ class Merchant extends Human
 {
     private int $money;
 
-    public function __construct(string $firstname, string $lastname, string $age, string $profession, int $money)
+    public function __construct(string $firstname, string $lastname, string $age, Profession $profession, int $money)
     {
         parent::__construct($firstname, $lastname, $age, $profession);
         $this->money = $money;

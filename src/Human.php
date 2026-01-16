@@ -1,18 +1,19 @@
 <?php
 
+include "Profession.php";
+
 class Human
 {
     protected string $firstname;
     private string $lastname;
     private string $age;
-    private string $profession;
+    private Profession $profession;
 
-    public function __construct(string $firstname, string $lastname, string $age, string $profession)
+    public function __construct(string $firstname, string $lastname, string $age, Profession $profession)
     {
         $this->validateFirstName($firstname);
         $this->validateLastName($lastname);
         $this->validateAge($age);
-        $this->validateProfession($profession);
 
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -35,7 +36,7 @@ class Human
         return $this->age;
     }
 
-    public function getProfession(): string
+    public function getProfession(): Profession
     {
         return $this->profession;
     }
@@ -72,17 +73,4 @@ class Human
             throw new \Exception('age is not a number');
         }
     }
-
-    private function validateProfession(string $profession): void
-    {
-        if (empty($profession)) {
-            throw new \Exception('profession is empty');
-        }
-
-        if (is_numeric($profession)) {
-            throw new \Exception('profession is a number');
-        }
-    }
-
-
 }
