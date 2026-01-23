@@ -30,7 +30,7 @@ class Human
     {
         return $this->lastname;
     }
-
+     
     public function getAge(): string
     {
         return $this->age;
@@ -44,7 +44,7 @@ class Human
     private function validateFirstName(string $firstname): void
     {
         if (empty($firstname)) {
-            throw new \Exception('Firstname is empty');
+            throw new \Exception('');
         }
 
         if (is_numeric($firstname)) {
