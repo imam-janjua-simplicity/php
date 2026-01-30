@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="CLI Arguments" tests="9" assertions="9" errors="0" failures="0" skipped="0" time="0.002309">
-    <testsuite name="HumanTest" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" tests="9" assertions="9" errors="0" failures="0" skipped="0" time="0.002309">
-      <testsuite name="HumanTest::testCreateHumanWithEmptyData" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.001269">
-        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyAge&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="11" class="HumanTest" classname="HumanTest" assertions="1" time="0.000499"/>
-        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyProfession&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="11" class="HumanTest" classname="HumanTest" assertions="1" time="0.000317"/>
-        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyLastname&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="11" class="HumanTest" classname="HumanTest" assertions="1" time="0.000251"/>
-        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyFirstname&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="11" class="HumanTest" classname="HumanTest" assertions="1" time="0.000202"/>
+  <testsuite name="CLI Arguments" tests="9" assertions="9" errors="0" failures="0" skipped="0" time="0.002925">
+    <testsuite name="HumanTest" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" tests="9" assertions="9" errors="0" failures="0" skipped="0" time="0.002925">
+      <testsuite name="HumanTest::testCreateHumanWithValideData" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000757">
+        <testcase name="testCreateHumanWithValideData with data set &quot;valideData&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="114" class="HumanTest" classname="HumanTest" assertions="1" time="0.000757"/>
       </testsuite>
-      <testsuite name="HumanTest::testCreateHumanWithTypData" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.000841">
-        <testcase name="testCreateHumanWithTypData with data set &quot;notNumericAge&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="18" class="HumanTest" classname="HumanTest" assertions="1" time="0.000196"/>
-        <testcase name="testCreateHumanWithTypData with data set &quot;numericLastname&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="18" class="HumanTest" classname="HumanTest" assertions="1" time="0.000204"/>
-        <testcase name="testCreateHumanWithTypData with data set &quot;numericFirstname&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="18" class="HumanTest" classname="HumanTest" assertions="1" time="0.000225"/>
-        <testcase name="testCreateHumanWithTypData with data set &quot;numericProfession&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="18" class="HumanTest" classname="HumanTest" assertions="1" time="0.000216"/>
+      <testsuite name="HumanTest::testCreateHumanWithEmptyData" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.001074">
+        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyFirstname&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="98" class="HumanTest" classname="HumanTest" assertions="1" time="0.000364"/>
+        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyProfession&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="98" class="HumanTest" classname="HumanTest" assertions="1" time="0.000266"/>
+        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyAge&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="98" class="HumanTest" classname="HumanTest" assertions="1" time="0.000244"/>
+        <testcase name="testCreateHumanWithEmptyData with data set &quot;emptyLastname&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="98" class="HumanTest" classname="HumanTest" assertions="1" time="0.000200"/>
       </testsuite>
-      <testsuite name="HumanTest::testCreateHumanWithValideData" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000200">
-        <testcase name="testCreateHumanWithValideData with data set &quot;valideData&quot;" file="/Users/m.pallenberg/Projects/php/test/HumanTest.php" line="97" class="HumanTest" classname="HumanTest" assertions="1" time="0.000200"/>
+      <testsuite name="HumanTest::testCreateHumanWithTypData" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.001094">
+        <testcase name="testCreateHumanWithTypData with data set &quot;numericFirstname&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="106" class="HumanTest" classname="HumanTest" assertions="1" time="0.000222"/>
+        <testcase name="testCreateHumanWithTypData with data set &quot;numericLastname&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="106" class="HumanTest" classname="HumanTest" assertions="1" time="0.000426"/>
+        <testcase name="testCreateHumanWithTypData with data set &quot;notNumericAge&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="106" class="HumanTest" classname="HumanTest" assertions="1" time="0.000230"/>
+        <testcase name="testCreateHumanWithTypData with data set &quot;numericProfession&quot;" file="/Users/i.janjua/Projects/work/php/test/HumanTest.php" line="106" class="HumanTest" classname="HumanTest" assertions="1" time="0.000216"/>
       </testsuite>
     </testsuite>
   </testsuite>

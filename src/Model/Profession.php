@@ -1,8 +1,12 @@
-<?php 
+<?php
+ 
+declare (strict_types=1);
+
+namespace PhpKurs\Model;
 
 class Profession
 {
-  public const PROFESSION = ['Busfahrer', 'Developer', 'Lehrer'];
+  public const PROFESSION = ['taxifahrer'=>'Busfahrer', 'developer'=>'Developer','lehrer'=> 'Lehrer'];
   private string $profession; 
 
     public function __construct(string $profession)
@@ -13,7 +17,7 @@ class Profession
   private function validateProfession(string $profession): void 
   {
     if (!in_array($profession, self::PROFESSION)) {
-      throw new \Exception('is not valid profession');
+      throw new \Exception('is no valid profession');
     }
   }
 }

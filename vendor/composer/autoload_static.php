@@ -59,11 +59,8 @@ class ComposerStaticInitebb9ffe953adc451a2440951a7c1c28c
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
+            'PhpKurs\\' => 8,
             'PhpCsFixer\\' => 11,
-        ),
-        'I' => 
-        array (
-            'IJanjua\\Php\\' => 12,
         ),
         'F' => 
         array (
@@ -199,13 +196,13 @@ class ComposerStaticInitebb9ffe953adc451a2440951a7c1c28c
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'PhpKurs\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'PhpCsFixer\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
-        ),
-        'IJanjua\\Php\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'Fidry\\CpuCoreCounter\\' => 
         array (

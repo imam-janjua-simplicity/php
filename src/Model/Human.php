@@ -1,6 +1,8 @@
 <?php
 
-include "Profession.php";
+declare (strict_types=1);
+
+namespace PhpKurs\Model;
 
 class Human
 {
@@ -44,7 +46,7 @@ class Human
     private function validateFirstName(string $firstname): void
     {
         if (empty($firstname)) {
-            throw new \Exception('');
+            throw new \Exception('Firstname is empty');
         }
 
         if (is_numeric($firstname)) {
@@ -74,3 +76,4 @@ class Human
         }
     }
 }
+

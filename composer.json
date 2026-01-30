@@ -2,7 +2,7 @@
     "name": "i.janjua/php",
     "autoload": {
         "psr-4": {
-            "IJanjua\\Php\\": "src/"
+            "PhpKurs\\": "src/"
         }
     },
     "authors": [

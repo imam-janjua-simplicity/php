@@ -2,25 +2,11 @@
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
-
-include "src/Human.php";
+use PhpKurs\Model\Human;
+use PhpKurs\Model\Profession;
 
 class HumanTest extends TestCase
 {
-    #[DataProvider('emptyDataProvider')]
-    public function testCreateHumanWithEmptyData(string $firstname, string $lastname, string $age, string $profession, string $message): void
-    {
-        $this->expectExceptionMessage($message);
-        new Human($firstname, $lastname, $age, $profession);
-    }
-
-    #[DataProvider('typDataProvider')]
-    public function testCreateHumanWithTypData(string $firstname, string $lastname, string $age, string $profession, string $message): void
-    {
-        $this->expectExceptionMessage($message);
-        new Human($firstname, $lastname, $age, $profession);
-    }
-
     public static function emptyDataProvider(): array
     {
         return [
@@ -28,14 +14,14 @@ class HumanTest extends TestCase
                 '',
                 'Bauer',
                 '67',
-                'Ultra HD MAX Developer',
+                Profession::PROFESSION['taxifahrer'],
                 'Firstname is empty'
             ],
             'emptyLastname' => [
                 'Lukas',
                 '',
                 '34',
-                'IT',
+                Profession::PROFESSION['taxifahrer'],
                 'lastname is empty'
             ],
 
@@ -43,7 +29,7 @@ class HumanTest extends TestCase
                 'Lord',
                 'Lukas',
                 '',
-                'Ultra HD MAX Developer',
+                Profession::PROFESSION['taxifahrer'],
                 'age is empty'
             ],
             'emptyProfession' => [
@@ -51,7 +37,7 @@ class HumanTest extends TestCase
                 'Sir',
                 '55',
                 '',
-                'profession is empty'
+                'is no valid profession'
             ]
 
         ];
@@ -64,14 +50,14 @@ class HumanTest extends TestCase
                 '34',
                 'Bauer',
                 '67',
-                'Ultra HD MAX Developer',
+                Profession::PROFESSION['taxifahrer'],
                 'Firstname is a number'
             ],
             'numericLastname' => [
                 'Lukas',
                 '56',
                 '34',
-                'IT',
+                Profession::PROFESSION['taxifahrer'],
                 'lastname is a number'
             ],
 
@@ -79,25 +65,18 @@ class HumanTest extends TestCase
                 'Lord',
                 'Lukas',
                 'abc',
-                'Ultra HD MAX Developer',
+                Profession::PROFESSION['taxifahrer'],
                 'age is not a number'
             ],
             'numericProfession' => [
                 'Lukas',
                 'Sir',
                 '55',
-                '789',
-                'profession is a number'
+                '12',
+                'is no valid profession'
             ]
 
         ];
-    }
-
-    #[DataProvider('ValideDataProvider')]
-    public function testCreateHumanWithValideData(string $firstname, string $lastname, string $age, string $profession): void
-    {
-       $human = new Human($firstname, $lastname, $age, $profession);
-       $this->assertInstanceOf(Human::class, $human);
     }
 
 
@@ -108,10 +87,34 @@ class HumanTest extends TestCase
                 'Lord',
                 'Mark',
                 '67',
-                'Ultra HD MAX Developer',
+                Profession::PROFESSION['taxifahrer'],
             ],
 
         ];
 
     }
+
+    #[DataProvider('emptyDataProvider')]
+    public function testCreateHumanWithEmptyData(string $firstname, string $lastname, string $age, string $profession, string $message): void
+    {
+        $this->expectExceptionMessage($message);
+        $professionObj = new Profession($profession);
+        new Human($firstname, $lastname, $age, $professionObj);
+    }
+
+    #[DataProvider('typDataProvider')]
+    public function testCreateHumanWithTypData(string $firstname, string $lastname, string $age, string $profession, string $message): void
+    {
+        $this->expectExceptionMessage($message);
+        $professionObj = new Profession($profession);
+        new Human($firstname, $lastname, $age, $professionObj);
+    }
+
+    #[DataProvider('ValideDataProvider')]
+    public function testCreateHumanWithValideData(string $firstname, string $lastname, string $age, string $profession): void
+    {
+        $professionObj = new Profession($profession);
+        $human = new Human($firstname, $lastname, $age, $professionObj);
+        $this->assertInstanceOf(Human::class, $human);                                                                                                                      
+    }  
 }
