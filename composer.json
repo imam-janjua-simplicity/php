@@ -21,6 +21,7 @@
         "analyse": "vendor/bin/phpstan analyse -l 9 src",
         "lint-dry": "vendor/bin/php-cs-fixer fix --dry-run --diff src",
         "lint": "vendor/bin/php-cs-fixer fix --diff src",
-        "lint-test": "vendor/bin/php-cs-fixer fix --diff test"
+        "lint-test": "vendor/bin/php-cs-fixer fix --diff test",
+        "run": "php -S localhost:8000 -t public/"
     }
 }
