@@ -1,31 +1,36 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Button Beispiel</title>
-
-</head>
-<body>
-
-    <h1 id="text">Noch nicht gedrückt</h1>
-
 <?php
 
-//declare (strict_types=1);
+declare (strict_types=1);
 
 use PhpKurs\Model\Profession;
 use PhpKurs\Model\Human;
+use PhpKurs\Controller\IndexController;
+
 
 chdir(dirname(__DIR__));
 
 require_once 'vendor/autoload.php';
 
-$profession = new Profession(profession: 'Busfahrer'); 
-$human = new Human(firstname: "Lukas", lastname: "sir", age: "11", profession: $profession );
-echo $human->getFirstName();
+// $profession = new Profession(profession: 'Busfahrer'); 
+// $human = new Human(firstname: "Lukas", lastname: "sir", age: "11", profession: $profession );
+// echo $human->getFirstName();
 
-?>
-<b>!</b>
+// var_dump($_SERVER);
 
-</body>
-</html>
+$indexController = new IndexController();
+
+$request = $_SERVER['REQUEST_URI'];
+
+// Router
+switch($request) {
+    case '/': 
+        $indexController->indexAction();
+        break;   
+    case '/test': 
+        $indexController->testAction();
+        break; 
+    default: 
+        echo '404';
+}
+
+

@@ -22,6 +22,6 @@
         "lint-dry": "vendor/bin/php-cs-fixer fix --dry-run --diff src",
         "lint": "vendor/bin/php-cs-fixer fix --diff src",
         "lint-test": "vendor/bin/php-cs-fixer fix --diff test",
-        "run": "php -S localhost:8000 -t public/"
+        "start": "php -S localhost:8000 -t public/"
     }
 }
