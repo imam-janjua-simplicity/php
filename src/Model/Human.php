@@ -77,5 +77,5 @@ class Human
     }
 }
 
-echo 'Moin';
+
 
