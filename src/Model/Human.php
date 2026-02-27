@@ -32,7 +32,7 @@ class Human
     {
         return $this->lastname;
     }
-     
+
     public function getAge(): string
     {
         return $this->age;
@@ -76,6 +76,3 @@ class Human
         }
     }
 }
-
-
-

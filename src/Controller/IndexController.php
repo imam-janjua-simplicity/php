@@ -7,29 +7,28 @@ namespace PhpKurs\Controller;
 use PhpKurs\Model\Human;
 use PhpKurs\Model\Profession;
 use PhpKurs\Service\View;
-
-
+use RuntimeException;
 
 class IndexController
 {
-    private View $view;
-
-    public function __construct()
-    {
-       $this->view = new View(); 
-
-    }
-
-    public function indexAction() 
+    public function indexAction()
     {
         $human = new Human('Merle', 'Pallenberg', '19', new Profession(Profession::PROFESSION['taxifahrer']));
 
-        $this->view->render('/View/index.php', ['human' => $human]);
+        try {
+            $view = new View('index/index');
+        } catch (RuntimeException $e) {
+            echo $e->getMessage();
+            exit;
+        }
+
+        $view->render(['human' => $human]);
+
     }
 
-      public function testAction() 
+    public function testAction()
     {
-        $this->view->render('/View/test.php');
+        $this->view('index/test');
     }
 
 }

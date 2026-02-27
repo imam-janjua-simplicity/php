@@ -12,7 +12,8 @@ parameters:
         - TRADE_KEY
 
     scanFiles:
-        - src/hello-world.php
+        - public/index.php
+        - config/config.php
 
     paths:
         - src

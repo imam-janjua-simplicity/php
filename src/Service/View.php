@@ -4,19 +4,32 @@ declare (strict_types=1);
 
 namespace PhpKurs\Service;
 
+use RuntimeException;
+
 class View
 {
-    public function render(string $path, ?array $data = null )
+    private string $path;
+
+    public function __construct(string $path)
+    {
+        $this->path = TEMPLATE_ROOT . $path . '.phtml';
+
+        if (!file_exists($this->path)) {
+            echo $this->path;
+            throw new RuntimeException('File path does not exist');
+        }
+    }
+
+    public function render(?array $data = null)
     {
         if ($data !== null) {
             extract($data);
         }
 
         ob_start();
-        require_once APP_ROOT . $path;
+        require_once $this->path;
         $content = ob_get_contents();
         ob_end_clean();
-
-        require_once APP_ROOT . '/View/skeleton.php';
+        require_once TEMPLATE_ROOT . 'skeleton.phtml';
     }
 }
