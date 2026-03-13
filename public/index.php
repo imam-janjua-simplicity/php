@@ -26,7 +26,10 @@ $request = $_SERVER['REQUEST_URI'];
 switch($request) {
     case '/': 
         $indexController->indexAction();
-        break;   
+        break;      
+    case '/show': 
+        $indexController->showAction();
+        break;      
     case '/test': 
         $indexController->testAction();
         break; 

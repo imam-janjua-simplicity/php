@@ -1,5 +1,25 @@
-<?php
+<form action='/show' method='post'>
+    <label for='firstname'>First Name:
+    <input name='firstname'/></label> 
 
-    echo $human->getFirstName();
+    <label for='lastname'>Last Name:
+    <input name='lastname'/></label>
 
-?>
+    <label for='age'>Age:
+    <input type='number' name='age'/></label>
+
+    <div> 
+        <label for='taxifahrer'>Busfahrer:
+        <input type='radio' name='profession' value='taxifahrer'/></label>
+        
+        <label for='developer'>Developer:
+        <input type='radio'  name='profession' value='developer'/></label>
+
+        <label for='lehrer'>Lehrer:
+        <input type='radio'  name='profession' value='lehrer'/></label>
+    </div>
+
+
+    <input type="submit">
+</form>
+

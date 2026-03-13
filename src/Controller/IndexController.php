@@ -13,7 +13,12 @@ class IndexController
 {
     public function indexAction()
     {
-        $human = new Human('Merle', 'Pallenberg', '19', new Profession(Profession::PROFESSION['taxifahrer']));
+        if (!empty($_POST)) { 
+            $human = new Human($_POST['firstname'], $_POST['lastname'], $_POST['age'], new Profession(Profession::PROFESSION[$_POST['profession']]));
+            var_dump($human);
+
+            header("Location: /show?firstname={$_POST['firstname']}");
+        }   
 
         try {
             $view = new View('index/index');
@@ -22,7 +27,17 @@ class IndexController
             exit;
         }
 
-        $view->render(['human' => $human]);
+        $view->render();
+
+
+
+        // $view->render(['human' => $human]);
+
+    }
+
+    public function showAction ()
+    {   
+       echo $firstname = $_GET['firstname'];
 
     }
 
