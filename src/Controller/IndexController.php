@@ -13,7 +13,11 @@ class IndexController
 {
     public function indexAction()
     {
-        $human = new Human('Merle', 'Pallenberg', '19', new Profession(Profession::PROFESSION['taxifahrer']));
+        if (!empty($_POST)) {
+            $human = new Human($_POST['inputFirstname'], 'Pallenberg', $_POST['inputAlter'], new Profession(Profession::PROFESSION[$_POST['inputProfession']]));
+            var_dump($human);
+            exit;
+        }  
 
         try {
             $view = new View('index/index');
@@ -23,7 +27,6 @@ class IndexController
         }
 
         $view->render(['human' => $human]);
-
     }
 
     public function testAction()

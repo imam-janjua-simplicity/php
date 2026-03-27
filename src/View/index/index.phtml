@@ -1,5 +1,20 @@
-<?php
 
-    echo $human->getFirstName();
 
-?>
+<form action="/" method="post">
+    <div>
+        <label for="inputFirstname">First name:</label>
+        <input id="inputFirstname" class="inputs" name="inputFirstname" type="text" />
+    </div>
+    <div>
+        <label for="inputAlter">Age:</label>
+        <input id="inputAlter" class="inputs" name="inputAlter" type="number" min="0" max="200"/>
+    </div>
+    <div>
+        <label for="inputProfession">Profession:</label>
+        <input id="inputProfession" class="inputs" name="inputProfession" type="text" />
+    </div>
+    <input id="submitButton" class="button" name="submitButton" type="submit" />
+
+</form>
+
+
