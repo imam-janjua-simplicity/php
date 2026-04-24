@@ -2,6 +2,9 @@
 
 declare (strict_types=1);
 
+namespace PhpKurs\Public;
+// session_start();
+
 use PhpKurs\Model\Profession;
 use PhpKurs\Model\Human;
 use PhpKurs\Controller\IndexController;
@@ -20,13 +23,16 @@ require_once 'config/config.php';
 
 $indexController = new IndexController();
 
-$request = $_SERVER['REQUEST_URI'];
+$request = trim(strtok($_SERVER['REQUEST_URI'], '?'));
 
 // Router
 switch($request) {
     case '/': 
         $indexController->indexAction();
-        break;   
+        break;      
+    case '/show': 
+        $indexController->showAction();
+        break;      
     case '/test': 
         $indexController->testAction();
         break; 

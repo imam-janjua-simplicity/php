@@ -1,20 +1,25 @@
+<form action='/show' method='post'>
+    <label for='firstname'>First Name:
+    <input name='firstname'/></label> 
+
+    <label for='lastname'>Last Name:
+    <input name='lastname'/></label>
+
+    <label for='age'>Age:
+    <input type='number' name='age'/></label>
+
+    <div> 
+        <label for='taxifahrer'>Busfahrer:
+        <input type='radio' name='profession' value='taxifahrer'/></label>
+        
+        <label for='developer'>Developer:
+        <input type='radio'  name='profession' value='developer'/></label>
+
+        <label for='lehrer'>Lehrer:
+        <input type='radio'  name='profession' value='lehrer'/></label>
+    </div>
 
 
-<form action="/" method="post">
-    <div>
-        <label for="inputFirstname">First name:</label>
-        <input id="inputFirstname" class="inputs" name="inputFirstname" type="text" />
-    </div>
-    <div>
-        <label for="inputAlter">Age:</label>
-        <input id="inputAlter" class="inputs" name="inputAlter" type="number" min="0" max="200"/>
-    </div>
-    <div>
-        <label for="inputProfession">Profession:</label>
-        <input id="inputProfession" class="inputs" name="inputProfession" type="text" />
-    </div>
-    <input id="submitButton" class="button" name="submitButton" type="submit" />
-
+    <input type="submit">
 </form>
-
 
