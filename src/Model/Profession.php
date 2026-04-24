@@ -12,6 +12,7 @@ class Profession
     public function __construct(string $profession)
     {
         $this->validateProfession($profession);
+        $this->profession = $profession;
     }
 
     private function validateProfession(string $profession): void
@@ -20,4 +21,10 @@ class Profession
             throw new \Exception('is no valid profession');
         }
     }
+
+    public function toString(): string
+    {
+        return $this->profession;
+    }
+
 }

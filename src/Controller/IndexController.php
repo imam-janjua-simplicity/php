@@ -18,13 +18,14 @@ class IndexController
 {
     public function indexAction()
     {
-        if (!empty($_POST)) { 
+        if (!empty($_POST)) {
             $human = new Human($_POST['firstname'], $_POST['lastname'], $_POST['age'], new Profession(Profession::PROFESSION[$_POST['profession']]));
             var_dump($human);
 
 
             $_SESSION['human'] = $human;
             header("Location: /show");
+            var_dump($_SESSION);
             exit;
         }   
 
@@ -41,13 +42,17 @@ class IndexController
 
         // $view->render(['human' => $human]);
 
+
     }
 
     public function showAction ()
     {   
-    
-        var_dump($_SESSION);
-       echo $_SESSION['human'];
+        
+        $view = new View('index/show');
+        //var_dump($_SESSION);
+       //echo $_SESSION['human'];
+
+       $view->render(['human' => $_SESSION['human']]);
 
     }
 
