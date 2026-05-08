@@ -5,60 +5,78 @@ declare (strict_types=1);
 
 namespace PhpKurs\Controller;
 
-session_start();
-
 use PhpKurs\Model\Human;
 use PhpKurs\Model\Profession;
 use PhpKurs\Service\View;
 use RuntimeException;
 
-
-
 class IndexController
 {
+
     public function indexAction()
+    {
+
+    }
+
+    public function createAction(): void
     {
         if (!empty($_POST)) {
             $human = new Human($_POST['firstname'], $_POST['lastname'], $_POST['age'], new Profession(Profession::PROFESSION[$_POST['profession']]));
-            var_dump($human);
 
-
-            $_SESSION['human'] = $human;
+            if (empty($_SESSION['human']))
+            {
+                $_SESSION['human'] = [];
+            }
+            $_SESSION['human'][] = $human;
             header("Location: /show");
-            var_dump($_SESSION);
             exit;
         }   
 
         try {
-            $view = new View('index/index');
+            $view = new View('index/create');
         } catch (RuntimeException $e) {
             echo $e->getMessage();
             exit;
         }
 
         $view->render();
-
-
-
-        // $view->render(['human' => $human]);
-
-
     }
 
-    public function showAction ()
-    {   
-        
+    public function showAction(): void
+    {
         $view = new View('index/show');
-        //var_dump($_SESSION);
-       //echo $_SESSION['human'];
-
-       $view->render(['human' => $_SESSION['human']]);
-
+        $view->render(['human' => $_SESSION['human']]);
     }
 
-    public function testAction()
+    public function testAction(): void
     {
         $this->view('index/test');
     }
 
+    public function updateAction(): void
+    {
+        if (!empty($_POST)) {
+            $human = new Human($_POST['firstname'], $_POST['lastname'], $_POST['age'], new Profession(Profession::PROFESSION[$_POST['profession']]));
+
+            $_SESSION['human'] = $human;
+            header("Location: /show");
+            exit;
+        }
+
+        try {
+            $view = new View('index/update');
+        } catch (RuntimeException $e) {
+            echo $e->getMessage();
+            exit;
+        }
+
+
+        $view = new View('index/update');
+        $view->render(['human' => $_SESSION['human']]);
+    }
+
+    public function deleteAction(): void
+    {
+        unset($_SESSION['human']);
+    }
 }

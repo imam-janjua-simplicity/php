@@ -1,0 +1,26 @@
+<form action='/update' method='post'>
+
+    <h1>Update</h1>
+    <label for='firstname'>First Name:
+        <input name='firstname' value=<?= $human->getFirstName() ?>></label>
+
+    <label for='lastname'>Last Name:
+        <input name='lastname' value=<?= $human->getLastName() ?>></label>
+
+    <label for='age'>Age:
+        <input type='number' name='age' value=<?= $human->getAge() ?>></label>
+
+    <div>
+        <label for='taxifahrer'>Busfahrer:
+            <input type='radio' name='profession' value='taxifahrer'/></label>
+
+        <label for='developer'>Developer:
+            <input type='radio'  name='profession' value='developer'/></label>
+
+        <label for='lehrer'>Lehrer:
+            <input type='radio'  name='profession' value='lehrer'/></label>
+    </div>
+
+
+    <input type="submit">
+</form>
