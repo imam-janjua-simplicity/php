@@ -27,8 +27,9 @@ class IndexController
             {
                 $_SESSION['human'] = [];
             }
-            $_SESSION['human'][] = $human;
-            header("Location: /show");
+            $_SESSION['human'][] = serialize($human);
+            $lastId = array_key_last($_SESSION['human']);
+            header('Location: /show?id=' . $lastId);
             exit;
         }   
 
@@ -44,13 +45,23 @@ class IndexController
 
     public function showAction(): void
     {
+        $id = $_GET['id'];
+
+        if (!isset($_SESSION['human'][$id]))
+        {
+            throw new RuntimeException('Human not found');
+        }
+
         $view = new View('index/show');
-        $view->render(['human' => $_SESSION['human']]);
+        $unserializedHuman = unserialize($_SESSION['human'][$id]);
+
+        $view->render(['human' => $unserializedHuman]);
     }
 
     public function testAction(): void
     {
-        $this->view('index/test');
+        $view = new View('index/test');
+        $view->render();
     }
 
     public function updateAction(): void
