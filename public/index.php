@@ -18,6 +18,9 @@ $request = trim(strtok($_SERVER['REQUEST_URI'], '?'));
 // Router
 switch($request) {
     case '/': 
+        $indexController->indexAction();
+        break;      
+    case '/create': 
         $indexController->createAction();
         break;      
     case '/show': 

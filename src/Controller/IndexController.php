@@ -15,7 +15,14 @@ class IndexController
 
     public function indexAction()
     {
+        $view = new View('index/index');
 
+        $unserializedHumans = [];
+        foreach($_SESSION['human'] as $id => $human) {
+            $unserializedHumans[$id] = unserialize($human);
+        }
+
+        $view->render(['unserializedHumans' => $unserializedHumans]);
     }
 
     public function createAction(): void

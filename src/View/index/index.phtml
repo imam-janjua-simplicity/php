@@ -1,1 +1,12 @@
-<?php
+<?php foreach ($unserializedHumans as $id => $human):?>
+
+<ul>
+  <li> Vorname: <?= $human->getFirstName() ?> </li> 
+  <li> Nachname: <?= $human->getLastName() ?></li>
+  <li> Alter: <?= $human->getAge() ?></li>
+  <li> Beruf: <?= $human->getProfession()->toString() ?></li>
+</ul>
+
+
+<?php endforeach ?>
+ 
