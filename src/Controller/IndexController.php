@@ -21,7 +21,7 @@ class IndexController
         foreach($_SESSION['human'] as $id => $human) {
             $unserializedHumans[$id] = unserialize($human);
         }
-
+        //var_dump($_SESSION['human']);
         $view->render(['unserializedHumans' => $unserializedHumans]);
     }
 
@@ -35,9 +35,12 @@ class IndexController
                 $_SESSION['human'] = [];
             }
             $_SESSION['human'][] = serialize($human);
+
+            //var_dump($_SESSION['human']);
             $lastId = array_key_last($_SESSION['human']);
             header('Location: /show?id=' . $lastId);
             exit;
+
         }   
 
         try {
@@ -52,6 +55,7 @@ class IndexController
 
     public function showAction(): void
     {
+        if
         $id = $_GET['id'];
 
         if (!isset($_SESSION['human'][$id]))
