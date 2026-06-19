@@ -1,3 +1,4 @@
+<form action='/delete' method='post'>
 <ul>
 <?php foreach ($unserializedHumans as $id => $human):?>
 <ul>
@@ -6,7 +7,9 @@
   <li> Alter: <?= $human->getAge() ?></li>
   <li> Beruf: <?= $human->getProfession()->toString() ?></li>
 
-<button type="button">Löschen</button>
+  <li> <label for='id'>Delete: <input type="submit" value=<?=$id?> name="id"> </li>
+
+
 </ul>
 <?php endforeach ?>
 </ul>

@@ -17,6 +17,11 @@ class IndexController
     {
         $view = new View('index/index');
 
+        if (!isset($_SESSION['human']))
+        {
+            header("Location: /create");
+        }
+
         $unserializedHumans = [];
         foreach($_SESSION['human'] as $id => $human) {
             $unserializedHumans[$id] = unserialize($human);
@@ -55,7 +60,6 @@ class IndexController
 
     public function showAction(): void
     {
-        if
         $id = $_GET['id'];
 
         if (!isset($_SESSION['human'][$id]))
@@ -77,6 +81,7 @@ class IndexController
 
     public function updateAction(): void
     {
+        $id = $_GET['id'];
         if (!empty($_POST)) {
             $human = new Human($_POST['firstname'], $_POST['lastname'], $_POST['age'], new Profession(Profession::PROFESSION[$_POST['profession']]));
 
@@ -94,11 +99,14 @@ class IndexController
 
 
         $view = new View('index/update');
-        $view->render(['human' => $_SESSION['human']]);
+        $unserializeHuman = unserialize($_SESSION['human'][$id]);
+        $view->render(['human' => $unserializeHuman]);
     }
 
     public function deleteAction(): void
     {
-        unset($_SESSION['human']);
+        $deleteId = $_POST['id'];
+        unset($_SESSION['human'][$deleteId]);
+        header("Location: /");
     }
 }
