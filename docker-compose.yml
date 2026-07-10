@@ -1,0 +1,15 @@
+services:
+  postgres:
+    container_name: php-test-database
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=testpw
+      - POSTGRES_USER=testuser
+      - POSTGRES_DB=testdb
+    ports:
+      - "9996:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 500m
